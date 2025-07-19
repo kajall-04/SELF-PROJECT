@@ -3,39 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FeelSync</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Daily Wisdom - Your Source for Inspirational Quotes</title>
+  <!-- Tailwind CSS CDN for easy styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter for general text, Playfair Display for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Custom styles can be added here if needed, but Tailwind is preferred -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f4f8; /* Light gray background */
+      color: #333;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Custom scrollbar for a nicer look */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="logo">FeelSync</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Journal</a>
-      <a href="#">Wall</a>
+<body class="antialiased">
+  <!-- Main container for responsive layout -->
+  <div class="min-h-screen flex flex-col items-center justify-between p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+
+    <!-- Navigation Bar -->
+    <nav class="w-full max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between py-4 px-6 bg-white shadow-lg rounded-xl mb-8">
+      <a href="#" class="text-3xl font-bold text-indigo-700 hover:text-indigo-900 transition-colors duration-300 mb-4 sm:mb-0">Daily Wisdom</a>
+      <ul class="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6 text-lg font-medium">
+        <li><a href="#" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 px-3 py-2 rounded-md">Home</a></home></li>
+        <li><a href="#" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 px-3 py-2 rounded-md">Categories</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 px-3 py-2 rounded-md">Authors</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 px-3 py-2 rounded-md">Submit Quote</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 px-3 py-2 rounded-md">About Us</a></li>
+      </ul>
     </nav>
-  </header>
 
-  <main>
-   <div style="font-size: 2rem;">✨ 🌿 💖</div>
-    <h1>Feel the rhythm of your emotions</h1>
-    <div class="subtitle">Express. Reflect. Sync with yourself.</div>
-    <button class="btn">Inspire Me ✨</button>
+    <!-- Main Header / Hero Section -->
+    <header class="w-full max-w-4xl text-center py-12 px-6 mb-12 bg-white rounded-2xl shadow-xl">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-4">
+        Your Daily Dose of Inspiration
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8">
+        Discover profound wisdom and uplifting words to brighten your day and spark your potential.
+      </p>
+      <div class="relative w-full max-w-lg mx-auto">
+        <input type="text" placeholder="Search quotes or authors..." aria-label="Search quotes"
+               class="w-full py-3 pl-5 pr-12 rounded-full border-2 border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-lg shadow-sm">
+        <button type="submit" aria-label="Search"
+                class="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+    </header>
 
-    <div class="grid-buttons">
-      <button class="btn">📓 Start Journaling</button>
-      <button class="btn">😎 Mood Tracker</button>
-      <button class="btn">💬 Quote of the Day</button>
-      <button class="btn">🧘‍♂️ Breathe With Me</button>
-      <button class="btn">🤝 Feel Together</button>
-      <button class="btn">🎵 Sound My Mood</button>
-      <button class="btn">🧠 Daily Challenge</button>
-    </div>
-  </main>
+    <!-- Quote Section -->
+    <section class="quote-section w-full max-w-3xl bg-white p-8 rounded-2xl shadow-2xl mb-12 transform hover:scale-105 transition-transform duration-300">
+      <div class="flex items-center justify-center text-indigo-600 text-2xl font-semibold mb-6">
+        <span class="mr-3">✨</span> Today's Inspiration <span class="ml-3">✨</span>
+      </div>
+      <div class="quote-box text-center">
+        <p id="quoteText" class="quote-text text-3xl md:text-4xl italic text-gray-800 leading-relaxed mb-6">
+          "The only way to do great work is to love what you do."
+        </p>
+        <p id="quoteAuthor" class="quote-author text-xl md:text-2xl font-medium text-gray-600">
+          - Steve Jobs
+        </p>
+      </div>
+      <div class="quote-actions flex flex-col sm:flex-row justify-center items-center mt-8 space-y-4 sm:space-y-0 sm:space-x-6">
+        <button id="newQuoteBtn" class="new-quote-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+          New Quote
+        </button>
+        <button class="share-quote-btn bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+          </svg>
+          Share Quote
+        </button>
+      </div>
+    </section>
 
-  <footer>
-    © 2025 FeelSync. Made with heart.
-  </footer>
+    <!-- Categories Section -->
+    <section class="categories-section w-full max-w-5xl py-12 px-6 bg-white rounded-2xl shadow-xl mb-12">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Explore by Topic</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <a href="#" class="category-card bg-purple-100 text-purple-800 hover:bg-purple-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Motivation</a>
+        <a href="#" class="category-card bg-yellow-100 text-yellow-800 hover:bg-yellow-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Success</a>
+        <a href="#" class="category-card bg-pink-100 text-pink-800 hover:bg-pink-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Love</a>
+        <a href="#" class="category-card bg-blue-100 text-blue-800 hover:bg-blue-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Life</a>
+        <a href="#" class="category-card bg-green-100 text-green-800 hover:bg-green-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Wisdom</a>
+        <a href="#" class="category-card bg-red-100 text-red-800 hover:bg-red-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Happiness</a>
+        <a href="#" class="category-card bg-indigo-100 text-indigo-800 hover:bg-indigo-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Inspiration</a>
+        <a href="#" class="category-card bg-teal-100 text-teal-800 hover:bg-teal-200 flex items-center justify-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-xl font-semibold">Courage</a>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter-section w-full max-w-3xl py-10 px-6 bg-indigo-700 text-white rounded-2xl shadow-xl mb-12 text-center">
+      <h2 class="text-4xl font-bold mb-4">Get Daily Quotes in Your Inbox!</h2>
+      <p class="text-lg mb-8">Subscribe to our newsletter and never miss your dose of inspiration.</p>
+      <form class="newsletter-form flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <input type="email" placeholder="Your email address" aria-label="Your email address" required
+               class="w-full sm:w-2/3 py-3 px-5 rounded-full border-2 border-indigo-400 focus:border-indigo-200 outline-none text-gray-900 text-lg shadow-inner">
+        <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+          Subscribe
+        </button>
+      </form>
+    </section>
+
+    <!-- Call-to-Action / Social Media Section -->
+    <section class="cta-section w-full max-w-4xl py-10 px-6 bg-white rounded-2xl shadow-xl mb-12 text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Connect With Us</h2>
+      <p class="text-lg text-gray-600 mb-8">Join our growing community for more uplifting content and discussions.</p>
+      <div class="social-links flex justify-center space-x-6">
+        <a href="#" class="social-icon text-blue-600 hover:text-blue-800 transform hover:scale-110 transition-transform duration-300" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3 8h-2v4h2v6h-4v-6H9V8h2V6.5c0-1.63 1.12-3.5 3.5-3.5H16v3h-1.5c-.276 0-.5.224-.5.5V10z"/></svg>
+        </a>
+        <a href="#" class="social-icon text-blue-400 hover:text-blue-600 transform hover:scale-110 transition-transform duration-300" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5.797 8.35c.01.23.01.46.01.69 0 7.07-5.39 15.24-15.24 15.24-3.03 0-5.85-.88-8.23-2.39.21.02.42.03.64.03 3.16 0 6.07-1.08 8.37-2.91-2.95-.05-5.44-2.01-6.3-4.7.41.08.82.12 1.25.12 2.04 0 3.93-.69 5.43-1.87-3.08-.66-5.4-3.32-5.4-6.41v-.08c.9.5 1.93.8 3.03.84-1.79-1.2-2.98-3.25-2.98-5.54 0-1.22.33-2.36.9-3.34 3.29 4.04 8.24 6.7 13.78 6.99-.1.43-.16.88-.16 1.35 0 3.27 2.65 5.92 5.92 5.92 1.7 0 3.24-.71 4.32-1.85 1.34-.11 2.6-.39 3.73-1.42-.45 1.4-1.4 2.58-2.65 3.34 1.19-.13 2.32-.46 3.37-.92-.81 1.2-1.82 2.26-2.99 3.1Z"/></svg>
+        </a>
+        <a href="#" class="social-icon text-pink-500 hover:text-pink-700 transform hover:scale-110 transition-transform duration-300" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.21 2.87c.87-.09 1.56.02 2.05.21.49.19.86.44 1.17.75.31.31.56.68.75 1.17.19.49.3.98.21 1.85-.09.87-.02 1.56-.21 2.05-.19.49-.44.86-.75 1.17-.31.31-.68.56-1.17.75-.49.19-.98.3-1.85.21-.87-.09-1.56-.02-2.05-.21-.49-.19-.86-.44-1.17-.75-.31-.31-.56-.68-.75-1.17-.19-.49-.3-1-.21-1.87.09-.87.02-1.56.21-2.05.19-.49.44-.86.75-1.17.31-.31.68-.56 1.17-.75.49-.19.98-.3 1.85-.21zM12 9a3 3 0 100 6 3 3 0 000-6zm0 2a1 1 0 110 2 1 1 0 010-2z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer w-full max-w-6xl mx-auto text-center py-6 px-4 bg-gray-800 text-gray-300 rounded-xl shadow-lg">
+      <p class="mb-2">&copy; 2025 Daily Wisdom. All rights reserved.</p>
+      <div class="flex justify-center space-x-4 text-sm">
+        <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+        <span class="text-gray-500">|</span>
+        <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Placeholder for script.js content
+    // You would typically fetch quotes from an API here.
+    // For now, let's add basic functionality for the "New Quote" button.
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const quoteText = document.getElementById('quoteText');
+      const quoteAuthor = document.getElementById('quoteAuthor');
+      const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+      const quotes = [
+        { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+        { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+        { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
+        { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" }
+      ];
+
+      let currentQuoteIndex = 0;
+
+      function displayQuote(index) {
+        quoteText.textContent = `"${quotes[index].text}"`;
+        quoteAuthor.textContent = `- ${quotes[index].author}`;
+      }
+
+      function getNewQuote() {
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        displayQuote(currentQuoteIndex);
+      }
+
+      // Initial quote display
+      displayQuote(currentQuoteIndex);
+
+      // Event listener for the new quote button
+      if (newQuoteBtn) {
+        newQuoteBtn.addEventListener('click', getNewQuote);
+      }
+
+      // Share button functionality (placeholder)
+      const shareQuoteBtn = document.querySelector('.share-quote-btn');
+      if (shareQuoteBtn) {
+        shareQuoteBtn.addEventListener('click', () => {
+          const textToShare = `${quoteText.textContent} ${quoteAuthor.textContent}`;
+          // In a real application, you'd use navigator.share() or a custom modal
+          // For now, we'll just log it to the console or show a simple message.
+          console.log("Sharing:", textToShare);
+          // Example of a simple message box (instead of alert)
+          const messageBox = document.createElement('div');
+          messageBox.textContent = 'Quote copied to clipboard (or ready to share)!';
+          messageBox.className = 'fixed bottom-5 right-5 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+          document.body.appendChild(messageBox);
+          setTimeout(() => {
+            messageBox.remove();
+          }, 3000); // Remove after 3 seconds
+
+          // Attempt to copy to clipboard (may not work in all iframe environments)
+          const tempTextArea = document.createElement('textarea');
+          tempTextArea.value = textToShare;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+          try {
+            document.execCommand('copy');
+            console.log('Text copied to clipboard');
+          } catch (err) {
+            console.error('Failed to copy text: ', err);
+          }
+          document.body.removeChild(tempTextArea);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
